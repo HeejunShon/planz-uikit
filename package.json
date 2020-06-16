@@ -56,12 +56,13 @@
     "webpack-bundle-analyzer": "^3.8.0"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "yarn pre-build-autoExportScripts && start-storybook -p 6006",
+    "build-storybook": "yarn pre-build-autoExportScripts && build-storybook",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
     "build": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
-    "test": "jest --watchAll --verbose"
+    "test": "jest --watchAll --verbose",
+    "pre-build-autoExportScripts": "node autoExportScripts/autoExportScript.js"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.28",
